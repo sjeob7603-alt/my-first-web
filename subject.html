@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 웹 페이지</title>
-</head>
+ <link rel="stylesheet" href="style.css">
+
 <body>
   <!DOCTYPE html>
 <!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
@@ -13,30 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 웹 페이지</title>
 <style>
-    /* 1. 전체 배경색과 기봄 폰트  */
-    body {
-        background-color: #E8F5BD;
-        color: #425e3c;
-        line-height: 1.7;
-        margin: 0;
-    }
-
-
-    /* 2.해더 꾸미기*/
-    header {
-        background-color: #726114;
-        color: #d3c06c;
-        text-align: center;
-        padding: 50px 0;
-    }
-
-    
-/* */
-nav {
-    text-align: center;
-    padding: 15px;
-    background-color: #a6e2ae;
-}
+  
     </style></head>
 
 <body>
@@ -84,8 +62,71 @@ nav {
     </div>
   </article>
   </section>
+  <section id="order-ares">
+    <hr>
+    <h2>온라인 주문하기</h2>
+    <form>
+    <div class="input-row">
+        <div class="input-group">
+            <label>주문자 성함</label>
+            <input type="text" id="userName"  placeholder="실명을 입력하세요">
+        </div>
+        <div class="input-group">
+            <label>연락처</label>
+            <input type="text" id="userPhone" placeholder="010-0000-0000">
+        </div>
+    </div>
+
+
+        <div class="input-group">
+            <label>배송 방식 선택</label>
+            <select>
+                <option>일반 택배 (3,000원)</option>
+                <option>신선 새벽 배송 (5,000원)</option>
+                <option>광주 로컬푸드 메장 픽업 (무료)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>배송 메세지</label>
+            <textarea placeholder="부재 시 문 앞에 놓아주세요"></textarea>
+        </div>
+
+            <button type="button" class="order-btn" onclick="processOrder()">지금 바로 주문 완료</button>
+
+            <div id="receipt" class="receipt-box">
+            </div>
+    </form>
+  </section>
 </main>
+</section>
+<script>
+    function processOrder() {
+
+        let name = document.getElementById('userName').value;
+        let phone = document.getElementById('userPhone').value;
+    let message = document.querySelector('textarea').value;
+
+        if (name === "" || phone === "") {
+            alert(" ⚠️ 정보를 모두 입력해 주세요!");
+            return;
+        }
 
 
+        let receipt = document.getElementById('receipt');
+
+        receipt.innerHTML = `
+        <h3> 🧾주문 확인 영수증</h3>
+        <p><strong>주문자:</strong> ${name} 님</p>
+        <p><strong>연락처:</strong> ${name} 님</p>
+        <p><strong>요청사항:</strong> ${message || "없음"}</p>
+        <hr>
+        <p style="text-align:center;">주문해 주셔서 감사합니다! 🍯</p>
+        `;
+
+
+        receipt.style.display = "block";
+    }
+</script>
 </body>
 </html>
