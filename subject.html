@@ -80,10 +80,10 @@
 
         <div class="input-group">
             <label>배송 방식 선택</label>
-            <select>
-                <option>일반 택배 (3,000원)</option>
-                <option>신선 새벽 배송 (5,000원)</option>
-                <option>광주 로컬푸드 메장 픽업 (무료)</option>
+            <select name="" id="deliveryFee">
+                <option value="3000">일반택배 (3,000원)</option>
+                <option value="5000">신선 새벽 배송(5,000원)</option>
+                <option value="0">광주 로컬푸드 메장 픽업 (무료)</option>
             </select>
         </div>
 
@@ -105,6 +105,15 @@
 
         let name = document.getElementById('userName').value;
         let phone = document.getElementById('userPhone').value;
+
+        let feevalue = document.getElementById("deliveryFee").value;
+        let deliveryFee = Number(feevalue);
+
+        //2.총금액 계산
+        let productprice = 15000;
+        let totalprice = productprice + deliveryFee;
+
+
     let message = document.querySelector('textarea').value;
 
         if (name === "" || phone === "") {
@@ -118,9 +127,13 @@
         receipt.innerHTML = `
         <h3> 🧾주문 확인 영수증</h3>
         <p><strong>주문자:</strong> ${name} 님</p>
-        <p><strong>연락처:</strong> ${name} 님</p>
+        <p><strong>연락처:</strong> ${phone} </p>
+        <p><strong>상품가격:</strong> ${productprice.toLocaleString()}원</p>
+        <p><strong>배송비:</strong> ${deliveryFee.toLocaleString()}원</p>
         <p><strong>요청사항:</strong> ${message || "없음"}</p>
         <hr>
+        <p style="font-size: 1.2em;"><strong>총 결제 금액:</strong></p>
+        <span style="color:red;">${totalprice.toLocaleString()}원</span></strong></p>
         <p style="text-align:center;">주문해 주셔서 감사합니다! 🍯</p>
         `;
 
