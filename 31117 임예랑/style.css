@@ -1,0 +1,106 @@
+  /* 1. 전체 배경색과 기봄 폰트  */
+    body {
+        background-color: #E8F5BD;
+        color: #425e3c;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+
+    /* 2.해더 꾸미기*/
+    header {
+        background-color: #726114;
+        color: #d3c06c;
+        text-align: center;
+        padding: 50px 0;
+    }
+
+    
+/* */
+nav {
+    text-align: center;
+    padding: 15px;
+    background-color: #a6e2ae;
+}
+#order-area {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.input-row .input-group {
+    flex: 1;
+}
+
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 2);
+}
+
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.order-btn{
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 18pz;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.order-btn:hover {
+    background-color: #388e38;
+    transform: translateY(20px);
+}
+
+.order-btn:active {
+    transform: translateY(5px);
+}
+
+.receipt-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px dashed #4caf50;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: none;
+}
+
+.receipt-box h3 {
+    color: #2e7d32;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
