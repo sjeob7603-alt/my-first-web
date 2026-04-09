@@ -33,9 +33,9 @@ sentiment_satisfied
 
     <main>
        <div class="display-box">
-        <img id=" " src="./image/crop1.jpg" style="width: 100%;
+        <img id="targetlmg" src="./image/crop1.jpg" style="width: 100%;
         max-width: 500px;"/>
-        <p id="">4월 7일:감자 첫 수확!</p>
+        <p id="targetDese">4월 7일:감자 첫 수확!</p>
        </div>
 
        <div class="thumb-list">
@@ -54,10 +54,10 @@ sentiment_satisfied
     // imgPath: 클릭한 사진의 주소 / text:클릭한 사진 설명
     function show(imgPath,text) {
         // 메인 전광한
-        document.getElementByld("targetlmg").src=imgPath;
+        document.getElementById("targetlmg").src=imgPath;
 
         // 메인 전광판 설명 글자
-        document.getElemenByld("targetDese").innerText=text
+        document.getElementById("targetDese").innerText=text
     }
 </script>
 </html>
