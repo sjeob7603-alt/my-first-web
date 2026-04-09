@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 웹 페이지</title>
  <link rel="stylesheet" href="style.css">
-
-<body>
-  <!DOCTYPE html>
-<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 웹 페이지</title>
 <style>
   
     </style></head>
@@ -23,9 +15,15 @@
     </header>
     
     <nav>
-        <a href="index.html" >홈으로</a>
-        <a href="subject.html" >/진로 탐구</a>
-    </nav>  
+        <a href="index.html" >홈으로<span class="material-symbols-outlined">
+</span></a>
+        <a href="subject.html" >/전공 탐구<span class="material-symbols-outlined">
+
+
+<a href="Gallery.html" >/갤러리<span class="material-symbols-outlined">
+</span></a>
+    </nav>
+
 </main>
   <section class="agriculture-portfolio" >
   <article class="crass-item">
@@ -78,6 +76,22 @@
     </div>
 
 
+    <div class="input-row">
+    <div class="input-group">
+        <label for="unitWeight">구매 단위 선택</label>
+        <select id="unitWeight">
+            <option value="15000">유기농 감자 1kg (15,000원)</option>
+            <option value="40000">유기농 감자 3kg (40,000원)</option>
+            <option value="60000">유기농 감자 5kg (60,000원)</option>
+        </select>
+    </div>
+    
+
+    <div class="input-group">
+        <label for="quantity">주문 수량 (박스)</label>
+        <input type="number" id="quantity" value="1" max="10">
+    </div>
+    </div>
         <div class="input-group">
             <label>배송 방식 선택</label>
             <select name="" id="deliveryFee">
@@ -98,41 +112,58 @@
             </div>
     </form>
   </section>
+  <main>
 </main>
 </section>
 <script>
     function processOrder() {
 
+        //1.데이터 가져오기
         let name = document.getElementById('userName').value;
         let phone = document.getElementById('userPhone').value;
+        let quantity = Number(document.getElementById("quantity").value);
+        let feevalue = (document.getElementById("deliveryFee").value);
+        let deliveryFee = Number(document.getElementById("deliveryFee").value);
 
-        let feevalue = document.getElementById("deliveryFee").value;
-        let deliveryFee = Number(feevalue);
+        //2. 선태한 상품의 가격과 이름 정보
+        let unitsSelect = document.getElementById("unitWeight");
+        let productprice = Number(unitsSelect.value);
+        let productName = unitsSelect.options[unitsSelect.selectedIndex].text;
 
-        //2.총금액 계산
-        let productprice = 15000;
-        let totalprice = productprice + deliveryFee;
+        //3. 배송비 무료
+        let basePrice = productprice * quantity;
 
+        if (basePrice >= 30000) {
+            deliveryFee = 0;
+        }
 
-    let message = document.querySelector('textarea').value;
+        let totalprice = basePrice + deliveryFee;
+        let message = document.querySelector("textarea").value;
+
+        //4. 주문 시각 및 입력 장치
+        let dateString = new Date().toLocaleString();
 
         if (name === "" || phone === "") {
-            alert(" ⚠️ 정보를 모두 입력해 주세요!");
+            alert("⚠️성함과 연락처를 모두 입력해 주세요! ");
             return;
         }
 
-
+        //5. 영수증 출력
         let receipt = document.getElementById('receipt');
-
         receipt.innerHTML = `
         <h3> 🧾주문 확인 영수증</h3>
+        <p style="color:gray; font-size:0.8em;">주문 시각: ${dateString};</p>
+        <hr>
         <p><strong>주문자:</strong> ${name} 님</p>
         <p><strong>연락처:</strong> ${phone} </p>
-        <p><strong>상품가격:</strong> ${productprice.toLocaleString()}원</p>
-        <p><strong>배송비:</strong> ${deliveryFee.toLocaleString()}원</p>
+        <p><strong>주문상품:</strong> ${productName}</p>
+        <p><strong>주문수량:</strong> ${quantity}</p>
+        <p><strong>배송비:</strong>
+            ${deliveryFee === 0 ? "무료배송" : deliveryFee.toLocaleString() + "원"}
+        </p>
         <p><strong>요청사항:</strong> ${message || "없음"}</p>
         <hr>
-        <p style="font-size: 1.2em;"><strong>총 결제 금액:</strong></p>
+        <p style="font-size: 1.2em;"><strong>총 결제 금액:
         <span style="color:red;">${totalprice.toLocaleString()}원</span></strong></p>
         <p style="text-align:center;">주문해 주셔서 감사합니다! 🍯</p>
         `;

@@ -104,3 +104,37 @@ select {
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
 }
+/*갤러리 전용 디자인*/
+.display-box {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius:  15px;; /*모서리 둥글*/
+    margin-bottom: 30px;
+}
+
+#targetlmg {
+    transition: transform 0.3s ease;
+}
+
+.thumb-list {
+    display: flex; /*사진들 가로로 나란히*/
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /*사진 많아지면*/
+}
+
+.thumb-list img {
+    cursor: pointer;
+    border:3px solid transparent;
+    transition: 0.2s;
+    width: 100px;
+    object-fit: cover ; /*찌그러지지않게*/
+    border-radius: 10px;
+}
+
+/*사용자 마우스*/
+.thumb-list img:hover{
+    border-color: #3f72af;
+    transform: scale(1.1); /*클릭하고싶게*/
+}

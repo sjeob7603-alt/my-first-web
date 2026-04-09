@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 웹 페이지</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+     <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>좋았다면 추억<span class="material-symbols-outlined">
+home
+</span>, 싫었다면 경험</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html" >홈으로<span class="material-symbols-outlined">
+cookie
+</span></a>
+        <a href="subject.html" >/전공 탐구<span class="material-symbols-outlined">
+sentiment_satisfied
+
+
+<a href="Gallery.html" >/전공 탐구<span class="material-symbols-outlined">
+<a href="Gallery.html">갤러리</a>
+
+</span></a>
+    </nav>
+
+    <main>
+       <div class="display-box">
+        <img id=" " src="./image/crop1.jpg" style="width: 100%;
+        max-width: 500px;"/>
+        <p id="">4월 7일:감자 첫 수확!</p>
+       </div>
+
+       <div class="thumb-list">
+        <img src="./image/crop1.jpg "
+        onclick="show('./image/crop1.jpg','4월 7일: 방울토마토 첫 수확!')"/>
+        <img src="./image/crop2.jpg"
+        onclick="show('./image/crop2.jpg','4월 9일:비료 주기 실습 완료')"/>
+        </div>
+    </main>
+
+    <footer>
+        문의: kiwibird44@naver.com.kr, © all right resevereg by 2026 임예랑
+    </footer>
+</body>
+<script>
+    // imgPath: 클릭한 사진의 주소 / text:클릭한 사진 설명
+    function show(imgPath,text) {
+        // 메인 전광한
+        document.getElementByld("targetlmg").src=imgPath;
+
+        // 메인 전광판 설명 글자
+        document.getElemenByld("targetDese").innerText=text
+    }
+</script>
+</html>
