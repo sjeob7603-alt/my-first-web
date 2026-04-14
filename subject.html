@@ -13,6 +13,7 @@
     <header>
         <h1>좋았다면 추억, 싫었다면 경험</h1>
     </header>
+
     
     <nav>
         <a href="index.html" >홈으로<span class="material-symbols-outlined">
@@ -24,7 +25,14 @@
 </span></a>
     </nav>
 
-</main>
+<main>
+<div id="login-box" style="text-align: center; margin: 50px;">
+    <h2> ⚠️ 시스템 인증이 필요합니다</h2>
+    <input type="password" id="userPw" placeholder="암호 4자리" />
+    <button onclick="checkLogin()">입장하기</button>
+</div>
+
+    <div id="secret-area" style="display: none;">
   <section class="agriculture-portfolio" >
   <article class="crass-item">
     <figure cless="crop-image">
@@ -112,6 +120,8 @@
             </div>
     </form>
   </section>
+        </div>
+        
   <main>
 </main>
 </section>
@@ -170,6 +180,21 @@
 
 
         receipt.style.display = "block";
+    }
+    function checkLogin(){
+        //1.입력된 암호 읽기
+        let pw = document.getElementById("userPw").value;
+
+        // 2.조건문을 활용한
+        if (pw === "1234") {
+            alert("인증에 성공하셨습니다.");
+
+            // 상태변형
+            document.getElementById("login-box").style.display = "none";
+            document.getElementById("secret-area").style.display = "block";
+        } else {
+            alert("암호가 일치하지 않습니다. 다시 시도하십시오.");
+        }
     }
 </script>
 </body>
