@@ -28,7 +28,7 @@
 <main>
 <div id="login-box" style="text-align: center; margin: 50px;">
     <h2> 🔒 시스템 인증이 필요합니다</h2>
-    <input type="text" id="userName" placeholder="사용자 이름" /><br>
+    <input type="text" id="userld" placeholder="사용자 이름" /><br>
     <input type="password" id="userPw" placeholder="암호 입력" /><br>
     <button onclick="checkLogin()">입장하기</button>
 </div>
@@ -195,7 +195,7 @@
     }
     function checkLogin(){
         //1.입력된 암호 읽기
-        let name = document.getElementById("userName").value
+        let name = document.getElementById("userld").value
         let pw = document.getElementById("userPw").value;
 
         // 금고에서 비밀번호 가져와
@@ -241,7 +241,7 @@
         if (confirm("로그아웃 하시겠습니까?")) {
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("savedName");
-            location.href = "indax.html";
+            location.href = "index.html";
         }
     }
 </script>
